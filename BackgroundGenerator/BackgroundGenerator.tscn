@@ -1,0 +1,72 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://BackgroundGenerator/BackgroundGenerator.gd" type="Script" id=1]
+[ext_resource path="res://BackgroundGenerator/Colorscheme.tres" type="Texture" id=2]
+[ext_resource path="res://BackgroundGenerator/StarStuff.tres" type="Material" id=3]
+[ext_resource path="res://BackgroundGenerator/stars.png" type="Texture" id=4]
+[ext_resource path="res://BackgroundGenerator/StarParticles.tres" type="Material" id=5]
+[ext_resource path="res://BackgroundGenerator/Nebulae.tres" type="Material" id=6]
+
+[sub_resource type="CanvasItemMaterial" id=1]
+particles_animation = true
+particles_anim_h_frames = 16
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[node name="BackgroundGenerator" type="Control"]
+margin_right = -962.0
+margin_bottom = -500.0
+rect_min_size = Vector2( 100, 100 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+colorscheme = ExtResource( 2 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="Background" type="ColorRect" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.0901961, 0.0901961, 0.0666667, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StarStuff" type="ColorRect" parent="."]
+material = ExtResource( 3 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 7.62939e-06
+margin_bottom = 7.62939e-06
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StarParticles" type="Particles2D" parent="."]
+material = SubResource( 1 )
+position = Vector2( 50, 50 )
+amount = 100
+visibility_rect = Rect2( -1000, -1000, 2000, 2000 )
+process_material = ExtResource( 5 )
+texture = ExtResource( 4 )
+
+[node name="Nebulae" type="ColorRect" parent="."]
+material = ExtResource( 6 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 7.62939e-06
+margin_bottom = 7.62939e-06
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StarContainer" type="Node2D" parent="."]
+
+[node name="PlanetContainer" type="Node2D" parent="."]
+
+[node name="PauseParticles" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+[connection signal="timeout" from="PauseParticles" to="." method="_on_PauseParticles_timeout"]

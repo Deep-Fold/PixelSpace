@@ -1,0 +1,8 @@
+[gd_resource type="DynamicFont" load_steps=2 format=2]
+
+[ext_resource path="res://GUI/slkscre.ttf" type="DynamicFontData" id=1]
+
+[resource]
+size = 25
+extra_spacing_char = -5
+font_data = ExtResource( 1 )
