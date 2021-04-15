@@ -5,9 +5,11 @@
 
 [resource]
 shader = ExtResource( 2 )
-shader_param/size = 5.002
+shader_param/size = 5.0
 shader_param/OCTAVES = 3
-shader_param/seed = 6.0
+shader_param/seed = 4.507
 shader_param/pixels = 500.0
 shader_param/background_color = Color( 0.0901961, 0.0901961, 0.0666667, 1 )
+shader_param/should_tile = false
+shader_param/reduce_background = false
 shader_param/colorscheme = ExtResource( 1 )

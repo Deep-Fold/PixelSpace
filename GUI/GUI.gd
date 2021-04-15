@@ -14,6 +14,7 @@ func _ready():
 func _generate_new():
 	generator.rect_min_size = new_size
 	generator.rect_size = new_size
+	generator.set_mirror_size(new_size)
 	$Viewport/Camera1.zoom = new_size/viewport.size
 	$Viewport/Camera1.offset = new_size * 0.5
 	yield(get_tree(), "idle_frame")
@@ -77,3 +78,11 @@ func _on_EnableNebulae_pressed():
 
 func _on_EnablePlanets_pressed():
 	generator.toggle_planets()
+
+
+func _on_EnableReduceBackground_pressed():
+	generator.toggle_reduce_background()
+
+
+func _on_EnableTile_pressed():
+	generator.toggle_tile()

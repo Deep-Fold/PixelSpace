@@ -143,23 +143,25 @@ text = "colorscheme:"
 [node name="ScrollContainer" type="ScrollContainer" parent="HBoxContainer/ColorRect/Settings"]
 margin_top = 98.0
 margin_right = 442.0
-margin_bottom = 480.0
+margin_bottom = 450.0
 rect_min_size = Vector2( 0, 50 )
 size_flags_vertical = 3
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/ColorRect/Settings/ScrollContainer"]
-margin_right = 442.0
+margin_right = 430.0
 margin_bottom = 356.0
 size_flags_horizontal = 3
 custom_constants/separation = 2
 
 [node name="Button" parent="HBoxContainer/ColorRect/Settings/ScrollContainer/VBoxContainer" instance=ExtResource( 3 )]
+margin_right = 430.0
 custom_fonts/font = ExtResource( 6 )
 text = "NYX8"
 colorscheme = PoolColorArray( 0.00392157, 0.0352941, 0.0588235, 1, 0.0313726, 0.0784314, 0.117647, 1, 0.0588235, 0.164706, 0.247059, 1, 0.12549, 0.223529, 0.309804, 1, 0.305882, 0.286275, 0.372549, 1, 0.505882, 0.384314, 0.443137, 1, 0.6, 0.458824, 0.466667, 1, 0.764706, 0.639216, 0.541176, 1, 0.964706, 0.839216, 0.741176, 1 )
 
 [node name="Button4" parent="HBoxContainer/ColorRect/Settings/ScrollContainer/VBoxContainer" instance=ExtResource( 3 )]
 margin_top = 28.0
+margin_right = 430.0
 margin_bottom = 54.0
 custom_fonts/font = ExtResource( 6 )
 text = "AMMO-8"
@@ -167,6 +169,7 @@ colorscheme = PoolColorArray( 0, 0.0392157, 0.0117647, 1, 0.0156863, 0.0470588, 
 
 [node name="Button9" parent="HBoxContainer/ColorRect/Settings/ScrollContainer/VBoxContainer" instance=ExtResource( 3 )]
 margin_top = 56.0
+margin_right = 430.0
 margin_bottom = 80.0
 custom_fonts/font = ExtResource( 7 )
 text = "winter wonderland"
@@ -174,6 +177,7 @@ colorscheme = PoolColorArray( 0.0666667, 0.0941176, 0.215686, 1, 0.12549, 0.1568
 
 [node name="Button11" parent="HBoxContainer/ColorRect/Settings/ScrollContainer/VBoxContainer" instance=ExtResource( 3 )]
 margin_top = 82.0
+margin_right = 430.0
 margin_bottom = 108.0
 custom_fonts/font = ExtResource( 6 )
 text = "borkfest"
@@ -181,6 +185,7 @@ colorscheme = PoolColorArray( 0.0901961, 0.0901961, 0.0666667, 1, 0.12549, 0.133
 
 [node name="Button10" parent="HBoxContainer/ColorRect/Settings/ScrollContainer/VBoxContainer" instance=ExtResource( 3 )]
 margin_top = 110.0
+margin_right = 430.0
 margin_bottom = 134.0
 custom_fonts/font = SubResource( 2 )
 text = "submerged chimera"
@@ -188,6 +193,7 @@ colorscheme = PoolColorArray( 0.0196078, 0.00784314, 0.0980392, 1, 0.0705882, 0.
 
 [node name="Button6" parent="HBoxContainer/ColorRect/Settings/ScrollContainer/VBoxContainer" instance=ExtResource( 3 )]
 margin_top = 136.0
+margin_right = 430.0
 margin_bottom = 162.0
 custom_fonts/font = ExtResource( 6 )
 text = "DREAMSCAPE8"
@@ -195,6 +201,7 @@ colorscheme = PoolColorArray( 0.129412, 0.0980392, 0.129412, 1, 0.329412, 0.2, 0
 
 [node name="Button8" parent="HBoxContainer/ColorRect/Settings/ScrollContainer/VBoxContainer" instance=ExtResource( 3 )]
 margin_top = 164.0
+margin_right = 430.0
 margin_bottom = 190.0
 custom_fonts/font = ExtResource( 6 )
 text = "coffee"
@@ -202,6 +209,7 @@ colorscheme = PoolColorArray( 0, 0, 0, 1, 0, 0, 0, 1, 0.0392157, 0.0392157, 0.03
 
 [node name="Button5" parent="HBoxContainer/ColorRect/Settings/ScrollContainer/VBoxContainer" instance=ExtResource( 3 )]
 margin_top = 192.0
+margin_right = 430.0
 margin_bottom = 218.0
 custom_fonts/font = ExtResource( 6 )
 text = "FUNKYFUTURE8"
@@ -209,6 +217,7 @@ colorscheme = PoolColorArray( 0.0705882, 0.0313726, 0.14902, 1, 0.168627, 0.0588
 
 [node name="Button3" parent="HBoxContainer/ColorRect/Settings/ScrollContainer/VBoxContainer" instance=ExtResource( 3 )]
 margin_top = 220.0
+margin_right = 430.0
 margin_bottom = 246.0
 custom_fonts/font = ExtResource( 6 )
 text = "POLLEN8"
@@ -216,6 +225,7 @@ colorscheme = PoolColorArray( 0.180392, 0.141176, 0.164706, 1, 0.45098, 0.27451,
 
 [node name="Button7" parent="HBoxContainer/ColorRect/Settings/ScrollContainer/VBoxContainer" instance=ExtResource( 3 )]
 margin_top = 248.0
+margin_right = 430.0
 margin_bottom = 274.0
 custom_fonts/font = ExtResource( 6 )
 text = "Rust gold 8"
@@ -223,6 +233,7 @@ colorscheme = PoolColorArray( 0.0313726, 0.0784314, 0.117647, 1, 0.12549, 0.1254
 
 [node name="Button2" parent="HBoxContainer/ColorRect/Settings/ScrollContainer/VBoxContainer" instance=ExtResource( 3 )]
 margin_top = 276.0
+margin_right = 430.0
 margin_bottom = 302.0
 custom_fonts/font = ExtResource( 6 )
 text = "SLSO8"
@@ -230,6 +241,7 @@ colorscheme = PoolColorArray( 0, 0.0901961, 0.168627, 1, 0.0509804, 0.168627, 0.
 
 [node name="Button12" parent="HBoxContainer/ColorRect/Settings/ScrollContainer/VBoxContainer" instance=ExtResource( 3 )]
 margin_top = 304.0
+margin_right = 430.0
 margin_bottom = 328.0
 custom_fonts/font = ExtResource( 7 )
 text = "Goosebumps gold"
@@ -237,19 +249,20 @@ colorscheme = PoolColorArray( 0, 0.00784314, 0.0156863, 1, 0.129412, 0.0980392, 
 
 [node name="Button13" parent="HBoxContainer/ColorRect/Settings/ScrollContainer/VBoxContainer" instance=ExtResource( 3 )]
 margin_top = 330.0
+margin_right = 430.0
 margin_bottom = 356.0
 custom_fonts/font = ExtResource( 6 )
 text = "OIL6"
 colorscheme = PoolColorArray( 0.0228, 0.0228, 0.04, 1, 0.0666667, 0.0666667, 0.121569, 1, 0.113725, 0.113725, 0.2, 1, 0.152941, 0.152941, 0.266667, 1, 0.286275, 0.301961, 0.494118, 1, 0.545098, 0.427451, 0.611765, 1, 0.776471, 0.623529, 0.647059, 1, 0.94902, 0.827451, 0.670588, 1, 0.984314, 0.960784, 0.937255, 1 )
 
 [node name="Spacer3" type="Control" parent="HBoxContainer/ColorRect/Settings"]
-margin_top = 482.0
+margin_top = 452.0
 margin_right = 442.0
-margin_bottom = 487.0
+margin_bottom = 457.0
 rect_min_size = Vector2( 0, 5 )
 
 [node name="GridContainer" type="GridContainer" parent="HBoxContainer/ColorRect/Settings"]
-margin_top = 489.0
+margin_top = 459.0
 margin_right = 442.0
 margin_bottom = 545.0
 columns = 2
@@ -288,6 +301,21 @@ custom_styles/hover_pressed = SubResource( 3 )
 pressed = true
 text = "planets"
 
+[node name="EnableTile" type="CheckBox" parent="HBoxContainer/ColorRect/Settings/GridContainer"]
+margin_top = 60.0
+margin_right = 219.0
+margin_bottom = 86.0
+custom_styles/hover_pressed = SubResource( 3 )
+text = "tile"
+
+[node name="EnableReduceBackground" type="CheckBox" parent="HBoxContainer/ColorRect/Settings/GridContainer"]
+margin_left = 223.0
+margin_top = 60.0
+margin_right = 442.0
+margin_bottom = 86.0
+custom_styles/hover_pressed = SubResource( 3 )
+text = "darken"
+
 [node name="Spacer4" type="Control" parent="HBoxContainer/ColorRect/Settings"]
 margin_top = 547.0
 margin_right = 442.0
@@ -309,5 +337,7 @@ one_shot = true
 [connection signal="pressed" from="HBoxContainer/ColorRect/Settings/GridContainer/EnableDust" to="." method="_on_EnableDust_pressed"]
 [connection signal="pressed" from="HBoxContainer/ColorRect/Settings/GridContainer/EnableNebulae" to="." method="_on_EnableNebulae_pressed"]
 [connection signal="pressed" from="HBoxContainer/ColorRect/Settings/GridContainer/EnablePlanets" to="." method="_on_EnablePlanets_pressed"]
+[connection signal="pressed" from="HBoxContainer/ColorRect/Settings/GridContainer/EnableTile" to="." method="_on_EnableTile_pressed"]
+[connection signal="pressed" from="HBoxContainer/ColorRect/Settings/GridContainer/EnableReduceBackground" to="." method="_on_EnableReduceBackground_pressed"]
 [connection signal="pressed" from="HBoxContainer/ColorRect/Settings/ExportButton" to="." method="_on_ExportButton_pressed"]
 [connection signal="timeout" from="SaveTimer" to="." method="_on_SaveTimer_timeout"]
