@@ -8,10 +8,11 @@ uniform float pixels = 100.0;
 uniform bool should_tile = false;
 uniform bool reduce_background = false;
 uniform sampler2D colorscheme;
+uniform vec2 uv_correct = vec2(1.0);
 
 float rand(vec2 coord, float tilesize) {
 	if (should_tile) {
-		coord = mod(coord, tilesize);
+		coord = mod(coord / uv_correct, tilesize );
 	}
 
 	return fract(sin(dot(coord.xy ,vec2(12.9898,78.233))) * (15.5453 + seed));
@@ -84,12 +85,12 @@ float cloud_alpha(vec2 uv, float tilesize) {
 
 void fragment() {
 	// pixelizing and dithering
-	vec2 uv = floor((UV) * pixels) / pixels;
+	vec2 uv = floor((UV) * pixels) / pixels * uv_correct;
 	bool dith = dither(uv, UV);
 	
 	// noise for the dust
 	// the + vec2(x,y) is to create an offset in noise values
-	float n_alpha = fbm(uv * ceil(size * 0.5) +vec2(2,2),ceil(size * 0.5));
+	float n_alpha = fbm(uv * ceil(size * 0.5) +vec2(2,2), ceil(size * 0.5));
 	float n_dust = cloud_alpha(uv * size, size);
 	float n_dust2 = fbm(uv * ceil(size * 0.2)  -vec2(2,2),ceil(size * 0.2));
 	float n_dust_lerp = n_dust2 * n_dust;

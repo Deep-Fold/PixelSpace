@@ -11,4 +11,5 @@ shader_param/seed = 6.521
 shader_param/pixels = 500.0
 shader_param/should_tile = false
 shader_param/reduce_background = false
+shader_param/uv_correct = Vector2( 1, 1 )
 shader_param/colorscheme = ExtResource( 1 )

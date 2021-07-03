@@ -9,10 +9,11 @@ uniform sampler2D colorscheme;
 uniform vec4 background_color : hint_color;
 uniform bool should_tile = false;
 uniform bool reduce_background = false;
+uniform vec2 uv_correct = vec2(1.0);
 
 float rand(vec2 coord, float tilesize) {
 	if (should_tile) {
-		coord = mod(coord, tilesize);
+		coord = mod(coord / uv_correct, tilesize);
 	}
 
 	return fract(sin(dot(coord.xy ,vec2(12.9898,78.233))) * (15.5453 + seed));
@@ -50,7 +51,7 @@ bool dither(vec2 uv1, vec2 uv2) {
 
 float circleNoise(vec2 uv, float tilesize) {
 	if (should_tile) {
-		uv = mod(uv, tilesize);
+		uv = mod(uv, tilesize / uv_correct);
 	}
 	
     float uv_y = floor(uv.y);
@@ -85,10 +86,12 @@ float cloud_alpha(vec2 uv, float tilesize) {
 void fragment() {
 	// pixelizing and dithering
 	vec2 uv = floor((UV) * pixels) / pixels;
-	bool dith = dither(uv, UV);
 	
 	// distance from center
-	float d = distance(uv, vec2(0.5)) * 0.4;
+	float d =  distance(uv, vec2(0.5)) * 0.4;
+	
+	uv *= uv_correct;
+	bool dith = dither(uv, UV);
 	
 	// noise for the inside of the nebulae
 	float n = cloud_alpha(uv * size, size);
@@ -96,10 +99,6 @@ void fragment() {
 	float n_lerp = n2 * n;
 	float n_dust = cloud_alpha(uv * size, size);
 	float n_dust_lerp = n_dust * n_lerp;
-	
-	// noise for the shape of the nebulae
-	float n_alpha = fbm(uv * ceil(size * 0.05) -vec2(1, 1), ceil(size * 0.05));
-	float a_dust = step(n_alpha , n_dust_lerp * 1.8);
 
 	// apply dithering
 	if (dith) {

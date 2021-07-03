@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://BackgroundGenerator/BackgroundGenerator.tscn" type="PackedScene" id=1]
 [ext_resource path="res://GUI/GUI.gd" type="Script" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://GUI/slkscre.ttf" type="DynamicFontData" id=5]
 [ext_resource path="res://GUI/FontSmall.tres" type="DynamicFont" id=6]
 [ext_resource path="res://GUI/FontSmaller.tres" type="DynamicFont" id=7]
+[ext_resource path="res://GUI/transparent.png" type="Texture" id=8]
 
 [sub_resource type="ViewportTexture" id=1]
 viewport_path = NodePath("Viewport")
@@ -31,7 +32,7 @@ __meta__ = {
 }
 
 [node name="Viewport" type="Viewport" parent="."]
-size = Vector2( 1000, 1000 )
+size = Vector2( 3000, 3000 )
 own_world = true
 transparent_bg = true
 hdr = false
@@ -63,11 +64,30 @@ margin_right = 600.0
 margin_bottom = 600.0
 rect_min_size = Vector2( 600, 600 )
 
+[node name="ColorRect" type="ColorRect" parent="HBoxContainer/Control"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.0313726, 0.0784314, 0.117647, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect2" type="TextureRect" parent="HBoxContainer/Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 8 )
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="TextureRect" type="TextureRect" parent="HBoxContainer/Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 texture = SubResource( 1 )
 expand = true
+stretch_mode = 6
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -105,10 +125,16 @@ margin_right = 442.0
 margin_bottom = 33.0
 rect_min_size = Vector2( 0, 5 )
 
-[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/ColorRect/Settings"]
+[node name="Label" type="Label" parent="HBoxContainer/ColorRect/Settings"]
 margin_top = 35.0
 margin_right = 442.0
 margin_bottom = 61.0
+text = "Size (Pixels):"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/ColorRect/Settings"]
+margin_top = 63.0
+margin_right = 442.0
+margin_bottom = 89.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -117,33 +143,56 @@ __meta__ = {
 margin_right = 219.0
 margin_bottom = 26.0
 size_flags_horizontal = 3
-text = "pixels:"
+text = "width:"
 
-[node name="pixelsSet" type="SpinBox" parent="HBoxContainer/ColorRect/Settings/HBoxContainer"]
+[node name="PixelsWidth" type="SpinBox" parent="HBoxContainer/ColorRect/Settings/HBoxContainer"]
 margin_left = 223.0
 margin_right = 442.0
 margin_bottom = 26.0
 size_flags_horizontal = 3
 min_value = 100.0
-max_value = 1000.0
+max_value = 3000.0
+value = 200.0
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="HBoxContainer/ColorRect/Settings"]
+margin_top = 91.0
+margin_right = 442.0
+margin_bottom = 117.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="HBoxContainer/ColorRect/Settings/HBoxContainer2"]
+margin_right = 219.0
+margin_bottom = 26.0
+size_flags_horizontal = 3
+text = "height:"
+
+[node name="PixelsHeight" type="SpinBox" parent="HBoxContainer/ColorRect/Settings/HBoxContainer2"]
+margin_left = 223.0
+margin_right = 442.0
+margin_bottom = 26.0
+size_flags_horizontal = 3
+min_value = 100.0
+max_value = 3000.0
 value = 200.0
 
 [node name="Spacer2" type="Control" parent="HBoxContainer/ColorRect/Settings"]
-margin_top = 63.0
+margin_top = 119.0
 margin_right = 442.0
-margin_bottom = 68.0
+margin_bottom = 124.0
 rect_min_size = Vector2( 0, 5 )
 
 [node name="Label2" type="Label" parent="HBoxContainer/ColorRect/Settings"]
-margin_top = 70.0
+margin_top = 126.0
 margin_right = 442.0
-margin_bottom = 96.0
+margin_bottom = 152.0
 text = "colorscheme:"
 
 [node name="ScrollContainer" type="ScrollContainer" parent="HBoxContainer/ColorRect/Settings"]
-margin_top = 98.0
+margin_top = 154.0
 margin_right = 442.0
-margin_bottom = 450.0
+margin_bottom = 419.0
 rect_min_size = Vector2( 0, 50 )
 size_flags_vertical = 3
 
@@ -256,15 +305,15 @@ text = "OIL6"
 colorscheme = PoolColorArray( 0.0228, 0.0228, 0.04, 1, 0.0666667, 0.0666667, 0.121569, 1, 0.113725, 0.113725, 0.2, 1, 0.152941, 0.152941, 0.266667, 1, 0.286275, 0.301961, 0.494118, 1, 0.545098, 0.427451, 0.611765, 1, 0.776471, 0.623529, 0.647059, 1, 0.94902, 0.827451, 0.670588, 1, 0.984314, 0.960784, 0.937255, 1 )
 
 [node name="Spacer3" type="Control" parent="HBoxContainer/ColorRect/Settings"]
-margin_top = 452.0
+margin_top = 421.0
 margin_right = 442.0
-margin_bottom = 457.0
+margin_bottom = 426.0
 rect_min_size = Vector2( 0, 5 )
 
 [node name="GridContainer" type="GridContainer" parent="HBoxContainer/ColorRect/Settings"]
-margin_top = 459.0
+margin_top = 428.0
 margin_right = 442.0
-margin_bottom = 545.0
+margin_bottom = 514.0
 columns = 2
 
 [node name="EnableStars" type="CheckBox" parent="HBoxContainer/ColorRect/Settings/GridContainer"]
@@ -316,6 +365,19 @@ margin_bottom = 86.0
 custom_styles/hover_pressed = SubResource( 3 )
 text = "darken"
 
+[node name="Spacer5" type="Control" parent="HBoxContainer/ColorRect/Settings"]
+margin_top = 516.0
+margin_right = 442.0
+margin_bottom = 517.0
+rect_min_size = Vector2( 0, 1 )
+
+[node name="EnableTransparency" type="CheckBox" parent="HBoxContainer/ColorRect/Settings"]
+margin_top = 519.0
+margin_right = 442.0
+margin_bottom = 545.0
+custom_styles/hover_pressed = SubResource( 3 )
+text = "Transparency"
+
 [node name="Spacer4" type="Control" parent="HBoxContainer/ColorRect/Settings"]
 margin_top = 547.0
 margin_right = 442.0
@@ -331,13 +393,16 @@ text = "export"
 [node name="SaveTimer" type="Timer" parent="."]
 wait_time = 0.1
 one_shot = true
+
 [connection signal="pressed" from="HBoxContainer/ColorRect/Settings/NewButton" to="." method="_on_NewButton_pressed"]
-[connection signal="value_changed" from="HBoxContainer/ColorRect/Settings/HBoxContainer/pixelsSet" to="." method="_on_pixelsSet_value_changed"]
+[connection signal="value_changed" from="HBoxContainer/ColorRect/Settings/HBoxContainer/PixelsWidth" to="." method="_on_PixelsWidth_value_changed"]
+[connection signal="value_changed" from="HBoxContainer/ColorRect/Settings/HBoxContainer2/PixelsHeight" to="." method="_on_PixelsHeight_value_changed"]
 [connection signal="pressed" from="HBoxContainer/ColorRect/Settings/GridContainer/EnableStars" to="." method="_on_EnableStars_pressed"]
 [connection signal="pressed" from="HBoxContainer/ColorRect/Settings/GridContainer/EnableDust" to="." method="_on_EnableDust_pressed"]
 [connection signal="pressed" from="HBoxContainer/ColorRect/Settings/GridContainer/EnableNebulae" to="." method="_on_EnableNebulae_pressed"]
 [connection signal="pressed" from="HBoxContainer/ColorRect/Settings/GridContainer/EnablePlanets" to="." method="_on_EnablePlanets_pressed"]
 [connection signal="pressed" from="HBoxContainer/ColorRect/Settings/GridContainer/EnableTile" to="." method="_on_EnableTile_pressed"]
 [connection signal="pressed" from="HBoxContainer/ColorRect/Settings/GridContainer/EnableReduceBackground" to="." method="_on_EnableReduceBackground_pressed"]
+[connection signal="pressed" from="HBoxContainer/ColorRect/Settings/EnableTransparency" to="." method="_on_EnableTransparency_pressed"]
 [connection signal="pressed" from="HBoxContainer/ColorRect/Settings/ExportButton" to="." method="_on_ExportButton_pressed"]
 [connection signal="timeout" from="SaveTimer" to="." method="_on_SaveTimer_timeout"]

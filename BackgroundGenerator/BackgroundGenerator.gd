@@ -38,11 +38,18 @@ func toggle_reduce_background():
 
 func generate_new():
 	starstuff.material.set_shader_param("seed", rand_range(1.0, 10.0))
-	starstuff.material.set_shader_param("pixels", rect_size.x)
+	starstuff.material.set_shader_param("pixels", max(rect_size.x, rect_size.y))
 	
+	var aspect = Vector2(1,1)
+	if rect_size.x > rect_size.y:
+		aspect = Vector2(rect_size.x / rect_size.y, 1.0)
+	else:
+		aspect = Vector2(1.0, rect_size.y / rect_size.x)
+	
+	starstuff.material.set_shader_param("uv_correct", aspect)
 	nebulae.material.set_shader_param("seed", rand_range(1.0, 10.0))
-	nebulae.material.set_shader_param("pixels", rect_size.x)
-	
+	nebulae.material.set_shader_param("pixels", max(rect_size.x, rect_size.y))
+	nebulae.material.set_shader_param("uv_correct", aspect)
 	
 	particles.speed_scale = 1.0
 	particles.amount = 1
@@ -62,7 +69,7 @@ func _make_new_stars():
 		s.queue_free()
 	star_objects = []
 	
-	var star_amount = int(rect_size.x / 20)
+	var star_amount = int(max(rect_size.x, rect_size.y) / 20)
 	star_amount = max(star_amount, 1)
 	for i in randi()%star_amount:
 		_place_big_star()
@@ -90,7 +97,8 @@ func _set_new_colors(new_scheme, new_background):
 		s.material.set_shader_param("colorscheme", colorscheme)
 
 func _place_planet():
-	var scale = Vector2(1,1)*(rand_range(0.2, 0.7)*rand_range(0.5, 1.0)*rect_size.x*0.005)
+	var min_size = min(rect_size.x, rect_size.y)
+	var scale = Vector2(1,1)*(rand_range(0.2, 0.7)*rand_range(0.5, 1.0)*min_size*0.005)
 	
 	var pos = Vector2()
 	if (should_tile):
@@ -137,3 +145,6 @@ func toggle_nebulae():
 
 func toggle_planets():
 	planetcontainer.visible = !planetcontainer.visible
+
+func toggle_transparancy():
+	$CanvasLayer/Background.visible = !$CanvasLayer/Background.visible

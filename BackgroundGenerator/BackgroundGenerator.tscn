@@ -56,8 +56,6 @@ texture = ExtResource( 4 )
 material = ExtResource( 6 )
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_right = 7.62939e-06
-margin_bottom = 7.62939e-06
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -69,4 +67,5 @@ __meta__ = {
 [node name="PauseParticles" type="Timer" parent="."]
 wait_time = 0.5
 one_shot = true
+
 [connection signal="timeout" from="PauseParticles" to="." method="_on_PauseParticles_timeout"]
