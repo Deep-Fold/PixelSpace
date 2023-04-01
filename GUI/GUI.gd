@@ -53,7 +53,8 @@ func save_image(img):
 		var filesaver = get_tree().root.get_node("/root/HTML5File")
 		filesaver.save_image(img, "Space Background")
 	else:
-		img.save_png("res://Space Background.png")
+		var ts = Time.get_datetime_dict_from_system()
+		img.save_png("res://Space Background %04d%02d%02d%02d%02d%02d.png" % [ts.year, ts.month, ts.day, ts.hour, ts.minute, ts.second])
 
 func _on_SaveTimer_timeout():
 	export_image()
